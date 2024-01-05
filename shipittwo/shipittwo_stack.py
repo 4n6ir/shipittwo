@@ -75,7 +75,7 @@ class ShipittwoStack(Stack):
 
         getpublicip = _lambda.LayerVersion.from_layer_version_arn(
             self, 'getpublicip',
-            layer_version_arn = 'arn:aws:lambda:'+region+':070176467818:layer:getpublicip:9'
+            layer_version_arn = 'arn:aws:lambda:'+region+':070176467818:layer:getpublicip:10'
         )
 
     ### IAM ROLE ###
@@ -109,7 +109,7 @@ class ShipittwoStack(Stack):
         error = _lambda.Function(
             self, 'error',
             function_name = 'shipittwo-error',
-            runtime = _lambda.Runtime.PYTHON_3_11,
+            runtime = _lambda.Runtime.PYTHON_3_12,
             code = _lambda.Code.from_asset('error'),
             handler = 'error.handler',
             role = role,
@@ -137,7 +137,7 @@ class ShipittwoStack(Stack):
         timeout = _lambda.Function(
             self, 'timeout',
             function_name = 'shipittwo-timeout',
-            runtime = _lambda.Runtime.PYTHON_3_11,
+            runtime = _lambda.Runtime.PYTHON_3_12,
             code = _lambda.Code.from_asset('timeout'),
             handler = 'timeout.handler',
             role = role,
